@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora Technologies | Home</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7fb;
+            color: #1c2b3a;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #102b4e;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #627184;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #102b4e;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            min-height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo-icon {
+            width: 43px;
+            height: 43px;
+            background-color: #08b6d4;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .logo span {
+            color: #08b6d4;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #e6edf5;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #08c4e5;
+        }
+
+        .nav-button {
+            background-color: #08b6d4;
+            color: #08233e;
+            padding: 11px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 590px;
+            display: flex;
+            align-items: center;
+            color: white;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7, 24, 45, 0.95),
+                    rgba(7, 24, 45, 0.68)
+                ),
+                url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=85");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 720px;
+            padding: 80px 0;
+        }
+
+        .hero-label {
+            color: #40d8f0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #08c4e5;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #d9e4ef;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #08b6d4;
+            color: #08233e;
+        }
+
+        .btn-primary:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: #102b4e;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 85px 0;
+            background-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 350px;
+            border-radius: 15px;
+            background:
+                linear-gradient(
+                    rgba(16, 43, 78, 0.1),
+                    rgba(16, 43, 78, 0.1)
+                ),
+                url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=85");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-text h2 {
+            color: #102b4e;
+            font-size: 32px;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: #5c6b7c;
+            margin-bottom: 18px;
+        }
+
+        .about-points {
+            list-style: none;
+            margin: 20px 0 25px;
+        }
+
+        .about-points li {
+            margin-bottom: 12px;
+            color: #34475b;
+        }
+
+        .check {
+            color: #079fbe;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 85px 0;
+            background-color: #edf3f9;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 28px 22px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(16, 43, 78, 0.06);
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-bottom-color: #08b6d4;
+            box-shadow: 0 12px 25px rgba(16, 43, 78, 0.12);
+        }
+
+        .service-icon {
+            width: 55px;
+            height: 55px;
+            background-color: #e2f8fc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: #078ba8;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            color: #102b4e;
+            margin-bottom: 12px;
+            font-size: 19px;
+        }
+
+        .service-card p {
+            color: #637285;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .service-link {
+            color: #078ba8;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .service-link:hover {
+            color: #102b4e;
+        }
+
+        /* CALL TO ACTION */
+        .cta {
+            padding: 70px 0;
+            background-color: #102b4e;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #d5e2ef;
+            max-width: 650px;
+            margin: 0 auto 25px;
+        }
+
+        /* FOUR-COLUMN FOOTER */
+        footer {
+            background-color: #081b30;
+            color: #d5e0ec;
+            padding-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 35px;
+            padding-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column p {
+            color: #b7c6d7;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 11px;
+        }
+
+        .footer-links a {
+            color: #b7c6d7;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #08c4e5;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 13px;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item svg {
+            width: 19px;
+            height: 19px;
+            flex-shrink: 0;
+            stroke: #08c4e5;
+            fill: none;
+            stroke-width: 1.8;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #476078;
+            border-radius: 50%;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #08b6d4;
+            border-color: #08b6d4;
+            color: #08233e;
+        }
+
+        .social-icons svg {
+            width: 19px;
+            height: 19px;
+            fill: currentColor;
+        }
+
+        .copyright {
+            border-top: 1px solid #263d54;
+            padding: 20px 0;
+            text-align: center;
+            color: #9eafc2;
+            font-size: 13px;
+        }
+
+        /* TABLET */
+        @media (max-width: 1000px) {
+            .service-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+                padding: 15px 0;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 650px) {
+            .navbar {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .hero {
+                min-height: 520px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 250px;
+            }
+
+            .service-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2,
+            .about-text h2,
+            .cta h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container navbar">
+
+            <a href="home.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 5L2 12L8 19"></path>
+                        <path d="M16 5L22 12L16 19"></path>
+                        <path d="M14 3L10 21"></path>
+                    </svg>
+                </div>
+
+                <div>Nexora <span>Technologies</span></div>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <a href="home.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="service.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="nav-button">Get in Touch</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+
+                    <div class="hero-label">Technology for Tomorrow</div>
+
+                    <h1>
+                        Building Digital Solutions for a
+                        <span>Smarter Future.</span>
+                    </h1>
+
+                    <p>
+                        Welcome to Nexora Technologies, where innovation meets
+                        practical solutions. We help businesses and individuals
+                        use technology to solve problems, improve efficiency
+                        and grow in a connected world.
+                    </p>
+
+                    <div class="button-group">
+                        <a href="service.html" class="btn btn-primary">
+                            Explore Our Services
+                        </a>
+
+                        <a href="about.html" class="btn btn-outline">
+                            Learn About Us
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PREVIEW -->
+        <section class="about" id="about">
+            <div class="container about-content">
+
+                <div class="about-image" role="img"
+                     aria-label="Technology professionals working together">
+                </div>
+
+                <div class="about-text">
+                    <h2>Technology That Moves You Forward</h2>
+
+                    <p>
+                        At Nexora Technologies, we believe technology should
+                        make everyday tasks easier and create opportunities
+                        for growth. Our focus is on practical, reliable and
+                        modern digital solutions.
+                    </p>
+
+                    <p>
+                        From website development to networking and IT support,
+                        we aim to help our clients work smarter and prepare
+                        for the future.
+                    </p>
+
+                    <ul class="about-points">
+                        <li><span class="check">✓</span> Innovative solutions</li>
+                        <li><span class="check">✓</span> Reliable technical support</li>
+                        <li><span class="check">✓</span> Client-focused service</li>
+                    </ul>
+
+                    <a href="about.html" class="btn btn-primary">
+                        More About Us
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="services" id="services">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Our Core Services</h2>
+                    <p>
+                        Practical technology services designed to meet
+                        modern digital needs.
+                    </p>
+                </div>
+
+                <div class="service-grid">
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                                <path d="M3 9H21"></path>
+                                <path d="M7 6.5H7.01"></path>
+                                <path d="M10 6.5H10.01"></path>
+                                <path d="M8 13L6 15L8 17"></path>
+                                <path d="M13 13L15 15L13 17"></path>
+                            </svg>
+                        </div>
+
+                        <h3>Web Development</h3>
+
+                        <p>
+                            We create responsive and user-friendly websites
+                            that help businesses establish a strong online presence.
+                        </p>
+
+                        <a href="service.html" class="service-link">
+                            Learn More &rarr;
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="8" y="2" width="8" height="6" rx="1"></rect>
+                                <rect x="2" y="16" width="8" height="6" rx="1"></rect>
+                                <rect x="14" y="16" width="8" height="6" rx="1"></rect>
+                                <path d="M12 8V12"></path>
+                                <path d="M6 16V12H18V16"></path>
+                            </svg>
+                        </div>
+
+                        <h3>Networking</h3>
+
+                        <p>
+                            We support the design and setup of computer
+                            networks for reliable communication and connectivity.
+                        </p>
+
+                        <a href="service.html" class="service-link">
+                            Learn More &rarr;
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 22S20 18 20 11V5L12 2L4 5V11C4 18 12 22 12 22Z"></path>
+                                <path d="M9 12L11 14L15 10"></path>
+                            </svg>
+                        </div>
+
+                        <h3>Cybersecurity</h3>
+
+                        <p>
+                            We promote safer digital systems through
+                            security awareness and basic protection practices.
+                        </p>
+
+                        <a href="service.html" class="service-link">
+                            Learn More &rarr;
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7 18H17A4 4 0 0 0 17 10A6 6 0 0 0 5.3 9A4.5 4.5 0 0 0 7 18Z"></path>
+                                <path d="M12 12V20"></path>
+                                <path d="M9 15L12 12L15 15"></path>
+                            </svg>
+                        </div>
+
+                        <h3>Cloud Computing</h3>
+
+                        <p>
+                            We introduce cloud-based tools that support
+                            flexible access to digital files and services.
+                        </p>
+
+                        <a href="service.html" class="service-link">
+                            Learn More &rarr;
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta">
+            <div class="container">
+
+                <h2>Ready to Take the Next Step?</h2>
+
+                <p>
+                    Have a project in mind or need help with a technology
+                    challenge? Let's discuss how the right digital solution
+                    can help you move forward.
+                </p>
+
+                <a href="contact.html" class="btn btn-primary">
+                    Contact Our Team
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOUR-COLUMN FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+
+            <!-- COLUMN 1: COMPANY -->
+            <div class="footer-column">
+
+                <a href="home.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8 5L2 12L8 19"></path>
+                            <path d="M16 5L22 12L16 19"></path>
+                            <path d="M14 3L10 21"></path>
+                        </svg>
+                    </div>
+
+                    <div>Nexora <span>Technologies</span></div>
+                </a>
+
+                <p>
+                    Connecting ideas with technology through modern,
+                    practical and reliable digital solutions.
+                </p>
+
+            </div>
+
+            <!-- COLUMN 2: QUICK LINKS -->
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="service.html">Our Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+
+            </div>
+
+            <!-- COLUMN 3: SERVICES -->
+            <div class="footer-column">
+
+                <h3>Our Services</h3>
+
+                <ul class="footer-links">
+                    <li><a href="service.html">Web Development</a></li>
+                    <li><a href="service.html">Networking Solutions</a></li>
+                    <li><a href="service.html">Cybersecurity</a></li>
+                    <li><a href="service.html">Cloud Computing</a></li>
+                </ul>
+
+            </div>
+
+            <!-- COLUMN 4: CONTACT AND SOCIAL ICONS -->
+            <div class="footer-column">
+
+                <h3>Get in Touch</h3>
+
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                        <path d="M3 7L12 13L21 7"></path>
+                    </svg>
+
+                    <span>info@nexoratech.example</span>
+                </div>
+
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22 16.9V20A2 2 0 0 1 19.8 22C10.4 21.1 2.9 13.6 2 4.2A2 2 0 0 1 4 2H7.1A2 2 0 0 1 9 3.7L9.7 7A2 2 0 0 1 9.1 9L7.5 10.6A16 16 0 0 0 13.4 16.5L15 14.9A2 2 0 0 1 17 14.3L20.3 15A2 2 0 0 1 22 16.9Z"></path>
+                    </svg>
+
+                    <span>+254 745657799</span>
+                </div>
+
+                <div class="social-icons">
+
+                    <a href="https://www.facebook.com/" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M13.5 21V13.2H16.1L16.5 10.1H13.5V8.1C13.5 7.2 13.8 6.6 15.1 6.6H16.6V3.8C15.9 3.7 15 3.6 14.1 3.6C11.3 3.6 9.5 5.3 9.5 8.3V10.1H6.8V13.2H9.5V21Z"></path>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.instagram.com/" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                            <circle cx="18" cy="6" r="1.2"></circle>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.tiktok.com/" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M14 3H17C17.2 5.1 18.4 6.6 21 7V10C19.2 10 17.5 9.4 16 8.4V16A6 6 0 1 1 10 10V13A3 3 0 1 0 13 16V3H14Z"></path>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.linkedin.com/" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 3A2 2 0 1 0 5 7A2 2 0 0 0 5 3Z"></path>
+                            <path d="M3.5 9H6.5V21H3.5Z"></path>
+                            <path d="M10 9H13V10.7C13.7 9.5 14.8 8.7 16.5 8.7C19.8 8.7 20.5 10.9 20.5 14V21H17.5V14.8C17.5 13.2 17.4 11.8 15.6 11.8C13.8 11.8 13 13.1 13 14.8V21H10Z"></path>
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <div class="container">
+                &copy; 2026 Nexora Technologies. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+

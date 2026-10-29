@@ -1,0 +1,1086 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Nexora Technologies</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            color: #26374a;
+            background: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #102b4e;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            min-height: 78px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            font-size: 23px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo svg {
+            width: 36px;
+            height: 36px;
+            color: #08b6d4;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #08b6d4;
+        }
+
+        .nav-button {
+            background: #08b6d4;
+            color: #102b4e;
+            padding: 11px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+
+        .contact-hero {
+            min-height: 380px;
+            background:
+                linear-gradient(rgba(7, 25, 48, 0.84),
+                rgba(7, 25, 48, 0.84)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: auto;
+            padding: 65px 0;
+        }
+
+        .small-heading {
+            color: #08b6d4;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .contact-hero h1 {
+            font-size: clamp(34px, 5vw, 56px);
+            line-height: 1.2;
+            margin: 18px 0;
+        }
+
+        .contact-hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #e0e9f3;
+            font-size: 17px;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            color: #102b4e;
+            font-size: clamp(28px, 4vw, 38px);
+            margin: 10px 0;
+        }
+
+        .section-heading p {
+            max-width: 700px;
+            margin: auto;
+            color: #68788b;
+        }
+
+        /* CONTACT INFORMATION */
+
+        .contact-info-section {
+            background: #f3f8fc;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .info-card {
+            background: #ffffff;
+            padding: 30px 22px;
+            text-align: center;
+            border: 1px solid #e1eaf2;
+            border-radius: 14px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(16, 43, 78, 0.1);
+        }
+
+        .info-icon {
+            width: 58px;
+            height: 58px;
+            padding: 13px;
+            background: #e3faff;
+            color: #087f9b;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            color: #102b4e;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: #68788b;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .info-card a {
+            color: #087f9b;
+            transition: color 0.3s;
+        }
+
+        .info-card a:hover {
+            color: #102b4e;
+        }
+
+        /* CONTACT FORM */
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .contact-text h2 {
+            color: #102b4e;
+            font-size: 32px;
+            line-height: 1.3;
+            margin: 12px 0 18px;
+        }
+
+        .contact-text p {
+            color: #68788b;
+            margin-bottom: 18px;
+        }
+
+        .contact-points {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .contact-points li {
+            margin-bottom: 15px;
+            color: #40536a;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .contact-points li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #08a3bf;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            background: #ffffff;
+            padding: 35px;
+            border: 1px solid #e1eaf2;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(16, 43, 78, 0.08);
+        }
+
+        .contact-form h3 {
+            color: #102b4e;
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .form-intro {
+            color: #68788b;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #102b4e;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d5e0eb;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            color: #26374a;
+            background: #ffffff;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #08b6d4;
+            box-shadow: 0 0 0 3px rgba(8, 182, 212, 0.12);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            border: none;
+            background: #08b6d4;
+            color: #102b4e;
+            padding: 14px 20px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #102b4e;
+            color: #ffffff;
+        }
+
+        .form-note {
+            margin-top: 14px;
+            color: #68788b;
+            font-size: 12px;
+        }
+
+        /* MAP SECTION */
+
+        .map-section {
+            background: #f3f8fc;
+        }
+
+        .map-placeholder {
+            min-height: 300px;
+            background:
+                linear-gradient(rgba(16, 43, 78, 0.78),
+                rgba(16, 43, 78, 0.78)),
+                url("https://images.unsplash.com/photo-1524666041070-9fc7dbca7946?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            color: #ffffff;
+        }
+
+        .map-placeholder svg {
+            width: 52px;
+            height: 52px;
+            color: #08b6d4;
+            margin-bottom: 15px;
+        }
+
+        .map-placeholder h3 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .map-placeholder p {
+            color: #e0e9f3;
+            margin-bottom: 20px;
+        }
+
+        .map-button {
+            display: inline-block;
+            background: #08b6d4;
+            color: #102b4e;
+            padding: 11px 23px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .map-button:hover {
+            background: #ffffff;
+        }
+
+        /* CALL TO ACTION */
+
+        .cta-section {
+            background: #eafaff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: #102b4e;
+            font-size: clamp(27px, 4vw, 36px);
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: #68788b;
+        }
+
+        .primary-button {
+            display: inline-block;
+            background: #08b6d4;
+            color: #102b4e;
+            padding: 13px 27px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-button:hover {
+            background: #102b4e;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #081d35;
+            color: #d0dce8;
+            padding-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 35px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand svg {
+            width: 32px;
+            height: 32px;
+            color: #08b6d4;
+        }
+
+        .footer-column p {
+            font-size: 14px;
+            color: #b8c7d8;
+            margin-bottom: 15px;
+        }
+
+        .footer-column h3 {
+            color: #ffffff;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 11px;
+        }
+
+        .footer-column a {
+            color: #b8c7d8;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #08b6d4;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #46617e;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #08b6d4;
+            color: #102b4e;
+            border-color: #08b6d4;
+        }
+
+        .social-links svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #29415d;
+            text-align: center;
+            padding: 20px 0;
+            color: #b8c7d8;
+            font-size: 13px;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 950px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-layout {
+                gap: 30px;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+            .navbar {
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .nav-button {
+                padding: 9px 15px;
+            }
+
+            .contact-hero {
+                min-height: 330px;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+
+            .contact-info-grid,
+            .contact-layout,
+            .form-row,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 25px 20px;
+            }
+
+            .contact-text h2 {
+                font-size: 29px;
+            }
+
+            .map-placeholder {
+                min-height: 260px;
+            }
+
+            .footer-grid {
+                gap: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+        <div class="container navbar">
+
+            <a href="home.html" class="logo">
+                <svg viewBox="0 0 48 48" fill="none"
+                     xmlns="http://www.w3.org/2000/svg"
+                     aria-hidden="true">
+                    <path d="M17 12L5 24L17 36"
+                          stroke="currentColor" stroke-width="4"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31 12L43 24L31 36"
+                          stroke="currentColor" stroke-width="4"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M27 8L21 40"
+                          stroke="currentColor" stroke-width="4"
+                          stroke-linecap="round"/>
+                </svg>
+                <span>Nexora</span>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="#contact-form" class="nav-button">Get in Touch</a>
+
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="contact-hero">
+        <div class="container hero-content">
+
+            <span class="small-heading">Get in Touch</span>
+
+            <h1>Let's Start a Conversation</h1>
+
+            <p>
+                Have a question or a project in mind? We would love to hear
+                from you. Contact Nexora Technologies to discuss your needs
+                and explore possible solutions.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- CONTACT INFORMATION -->
+
+    <section class="contact-info-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="small-heading">Contact Information</span>
+
+                <h2>How Can You Reach Us?</h2>
+
+                <p>
+                    Choose your preferred way to get in touch with us.
+                </p>
+            </div>
+
+            <div class="contact-info-grid">
+
+                <div class="info-card">
+                    <svg class="info-icon" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor"
+                         stroke-width="1.8" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                        <path d="M3 7L12 13L21 7"/>
+                    </svg>
+
+                    <h3>Email Us</h3>
+
+                    <p>
+                        <a href="mailto:info@nexoratech.example">
+                            info@nexoratech.example
+                        </a>
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <svg class="info-icon" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor"
+                         stroke-width="1.8" aria-hidden="true">
+                        <path d="M6.5 3H4A2 2 0 0 0 2 5
+                                 C2 14.4 9.6 22 19 22
+                                 A2 2 0 0 0 21 20V17.5
+                                 L15.5 15.5L13.5 18
+                                 C9.8 16.5 7.5 14.2 6 10.5
+                                 L8.5 8.5L6.5 3Z"/>
+                    </svg>
+
+                    <h3>Call Us</h3>
+
+                    <p>
+                        <a href="tel:+254700000000">
+                            +254 700 000 000
+                        </a>
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <svg class="info-icon" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor"
+                         stroke-width="1.8" aria-hidden="true">
+                        <path d="M20 10C20 15 12 22 12 22
+                                 S4 15 4 10A8 8 0 1 1 20 10Z"/>
+                        <circle cx="12" cy="10" r="2.5"/>
+                    </svg>
+
+                    <h3>Our Location</h3>
+
+                    <p>Kenya</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+
+    <section id="contact-form">
+        <div class="container contact-layout">
+
+            <div class="contact-text">
+                <span class="small-heading">Let's Connect</span>
+
+                <h2>Tell Us About Your Project</h2>
+
+                <p>
+                    Whether you need a new website, help with computer
+                    networking, or advice on technology solutions, start
+                    by sending us a message.
+                </p>
+
+                <p>
+                    Share a few details about what you need. This will help
+                    us understand your request and the kind of support
+                    you are looking for.
+                </p>
+
+                <ul class="contact-points">
+                    <li>Ask questions about our services.</li>
+                    <li>Describe your project or technology challenge.</li>
+                    <li>Let us know how we can assist you.</li>
+                </ul>
+            </div>
+
+            <form class="contact-form"
+                  action="mailto:info@nexoratech.example"
+                  method="post"
+                  enctype="text/plain">
+
+                <h3>Send Us a Message</h3>
+
+                <p class="form-intro">
+                    Fill in the form below. Fields marked with * are required.
+                </p>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="Full Name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="Email Address"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        name="Subject"
+                        placeholder="What is your message about?"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service of Interest</label>
+
+                    <select id="service" name="Service of Interest">
+                        <option value="">Choose a service</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Networking">Networking</option>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+
+                    <textarea
+                        id="message"
+                        name="Message"
+                        placeholder="Tell us how we can help..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    Send Message
+                </button>
+
+                <p class="form-note">
+                    This demonstration form uses your email application.
+                    It does not store messages on a website server.
+                </p>
+
+            </form>
+
+        </div>
+    </section>
+
+    <!-- LOCATION SECTION -->
+
+    <section class="map-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="small-heading">Find Us</span>
+
+                <h2>Our Location</h2>
+
+                <p>
+                    We are presenting Kenya as our general location
+                    for this website project.
+                </p>
+            </div>
+
+            <div class="map-placeholder">
+
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.8"
+                     aria-hidden="true">
+                    <path d="M20 10C20 15 12 22 12 22
+                             S4 15 4 10A8 8 0 1 1 20 10Z"/>
+                    <circle cx="12" cy="10" r="2.5"/>
+                </svg>
+
+                <h3>Nexora Technologies</h3>
+
+                <p>Serving clients in Kenya</p>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Kenya"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="map-button">
+                    View on Google Maps
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+
+    <section class="cta-section">
+        <div class="container">
+
+            <h2>Let's Build Something Better</h2>
+
+            <p>
+                The right technology can help turn an idea into a practical
+                solution. We look forward to hearing about your project.
+            </p>
+
+            <a href="mailto:info@nexoratech.example" class="primary-button">
+                Email Nexora
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-column">
+                    <a href="home.html" class="footer-brand">
+                        <svg viewBox="0 0 48 48" fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             aria-hidden="true">
+                            <path d="M17 12L5 24L17 36"
+                                  stroke="currentColor" stroke-width="4"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M31 12L43 24L31 36"
+                                  stroke="currentColor" stroke-width="4"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M27 8L21 40"
+                                  stroke="currentColor" stroke-width="4"
+                                  stroke-linecap="round"/>
+                        </svg>
+                        Nexora
+                    </a>
+
+                    <p>
+                        Building digital solutions that help people and
+                        businesses connect, grow, and move forward.
+                    </p>
+
+                    <div class="social-links">
+
+                        <a href="https://www.facebook.com/"
+                           aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M13.5 21V13.1H16.2L16.6 10H13.5V8
+                                C13.5 7.1 13.8 6.5 15.1 6.5H16.7V3.7
+                                C16.4 3.7 15.3 3.6 14.1 3.6
+                                C11.5 3.6 9.8 5.2 9.8 8.1V10H7V13.1
+                                H9.8V21H13.5Z"/>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.instagram.com/"
+                           aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7 2H17C19.8 2 22 4.2 22 7V17
+                                C22 19.8 19.8 22 17 22H7
+                                C4.2 22 2 19.8 2 17V7
+                                C2 4.2 4.2 2 7 2ZM7 4
+                                C5.3 4 4 5.3 4 7V17
+                                C4 18.7 5.3 20 7 20H17
+                                C18.7 20 20 18.7 20 17V7
+                                C20 5.3 18.7 4 17 4H7ZM12 7
+                                C14.8 7 17 9.2 17 12S14.8 17
+                                12 17S7 14.8 7 12S9.2 7 12 7ZM12 9
+                                C10.3 9 9 10.3 9 12S10.3 15 12 15
+                                S15 13.7 15 12S13.7 9 12 9Z"/>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.tiktok.com/"
+                           aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M19.6 6.2C18.1 6.1 16.8 5.1
+                                16.3 3.7C16.2 3.3 16.1 2.9 16.1 2.5
+                                H12.4V15.7C12.4 17.2 11.2 18.4
+                                9.7 18.4S7 17.2 7 15.7
+                                S8.2 13 9.7 13C10 13 10.4 13.1
+                                10.7 13.2V9.4C10.4 9.3 10 9.3
+                                9.7 9.3C6.1 9.3 3.2 12.2 3.2 15.7
+                                S6.1 22.1 9.7 22.1S16.1 19.2
+                                16.1 15.7V9.1C17.4 10 19 10.5
+                                20.7 10.5V6.7C20.3 6.7 20 6.5
+                                19.6 6.2Z"/>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.linkedin.com/"
+                           aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5.2 3A2.2 2.2 0 1 0 5.2 7.4
+                                A2.2 2.2 0 1 0 5.2 3ZM3.3 9H7.1V21H3.3V9ZM9.2 9H12.8V10.6H12.9
+                                C13.4 9.7 14.7 8.7 16.6 8.7
+                                C20.5 8.7 21.2 11.2 21.2 14.4V21H17.4V15.1
+                                C17.4 13.7 17.4 11.9 15.5 11.9
+                                C13.6 11.9 13.3 13.4 13.3 15V21H9.5
+                                V9H9.2Z"/>
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="service.html">Our Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+
+                    <ul>
+                        <li><a href="service.html">Web Development</a></li>
+                        <li><a href="service.html">Networking</a></li>
+                        <li><a href="service.html">Cybersecurity</a></li>
+                        <li><a href="service.html">Cloud Computing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+
+                    <p>
+                        Email:
+                        <a href="mailto:info@nexoratech.example">
+                            info@nexoratech.example
+                        </a>
+                    </p>
+
+                    <p>
+                        Phone:
+                        <a href="tel:+254745657799">
+                            +254 745657799
+                        </a>
+                    </p>
+
+                    <p>Location: Kenya</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                &copy; 2026 Nexora Technologies. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
